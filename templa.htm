@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#templa_dlg.title}</title>
+	<script src="/js_shared/dojo/1.6/dojo/dojo.js"></script>
+	<script type="text/javascript" src="../../tiny_mce_popup.js?v={tinymce_version}"></script>
+	<script type="text/javascript" src="js/templa.js?v={tinymce_version}"></script>
+	<link rel="stylesheet" type="text/css" href="/js_shared/dojo/1.6/dijit/themes/claro/claro.css" />
+	<link rel="stylesheet" type="text/css" href="/js_shared/dojo/1.6/lagua/resources/FormBuilder.css" />
+	<link href="css/template.css?v={tinymce_version}" rel="stylesheet" type="text/css" />
+	<script>
+		dojo.require("dforma.Builder");
+	</script>
+</head>
+<body class="claro" onresize="TemplateDialog.resize();"> 
+		<div id="frmbody">
+			<div id="field_opts">
+				<div class="title">{#templa_dlg.fields} <span id="templa_model">?</span></div>
+			</div>
+			<div id="modifier_opts" style="display:none;">
+				<div class="title">{#templa_dlg.modifier}</div>
+			</div>
+		</div>
+</body> 
+</html> 

@@ -1,0 +1,1 @@
+tinyMCE.addI18n('en.templa_dlg',{title:"Templa",label:"Templa","desc_label":"Description",fields:"Insert Data Fields",modifier:"Select a Modifier"});
