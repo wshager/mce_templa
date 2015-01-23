@@ -12,15 +12,15 @@ var TemplateDialog = {
  		var cfields =[];
  		var cmods = [];
  		if(sel) {
-	 		var div = dojo.create("div",{
+	 		var div = tinymce.create("div",{
 	 			innerHTML:sel
 	 		});
-	 		cfields = dojo.query(".templaField",div);
-	 		cmods = dojo.query("*[data-templa-type]",div);
+	 		cfields = tinymce.DOM.select(".templaField",div);
+	 		cmods = tinymce.DOM.select-templa-type]",div);
 	 		console.log(cfields)
  		}
- 		var fields = dojo.byId("field_opts");
- 		var mods = dojo.byId("modifier_opts");
+ 		var fields = tinymce.get("field_opts");
+ 		var mods = tinymce.get("modifier_opts");
  		var fb;
  		this.type = null;
  		var self = this;
@@ -37,7 +37,7 @@ var TemplateDialog = {
  				alert("No model or schema found");
  				return;
  			}
- 			dojo.byId("templa_model").innerHTML = model;
+ 			tinymce.get("templa_model").innerHTML = model;
  			var controls = [];
 			for(var k in schema.properties) {
 				controls.push({
@@ -85,7 +85,7 @@ var TemplateDialog = {
  						for(var k in data) {
 							if(!data[k]) delete data[k];
  						}
- 						var json = dojo.toJson(data);
+ 						var json = JSON.stringify(data);
  						json = json.replace(/\"/g,"'").substr(1,json.length-2);
  						var str = '<span title="'+mod+'" data-templa-type="'+mod+'" data-templa-props="'+json+'">'+sel+'</span>';
  						self.insert(str);
@@ -164,4 +164,6 @@ var TemplateDialog = {
 };
 
 TemplateDialog.preInit();
-tinyMCEPopup.onInit.add(TemplateDialog.init, TemplateDialog);
+require(["dforma/Builder"],function(){
+	tinyMCEPopup.onInit.add(TemplateDialog.init, TemplateDialog);
+});
